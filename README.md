@@ -15,13 +15,21 @@ All simulations were run on MATLAB R2020a.
 
 -----------------------------------------------------------------------------------
 
-Currently, input-output data is obtained by exciting the Magnetic Levitation System with an Amplitude-modulated Pseudo Ranfom Binary Sequence (APRBS).
+1. Add 'files' folder to $MATLAB_PATH
+2. Enter System, Simulation, and Input-sequence parameters in 'Main.m'
+3. Run 'Main.m'
+
+Note:- The saved files in data folder contain data used to train Neural Network. So, make sure they are not overwritten.
+
+-----------------------------------------------------------------------------------
+
+Currently, input-output data is obtained by exciting the Magnetic Levitation System with an Amplitude-modulated Pseudo Random Binary Sequence (APRBS). The figure below shows APRBS input supplied to Magnetic Levitation System and the corresponding output simulated by 'ode45'. The input remains at a particular amplitude level for atleast 0.01s and a maximum time of 1.0s (<img src="https://render.githubusercontent.com/render/math?math=0.01 \le \tau_{U} \le 1.0">).
 
 ![](https://github.com/JohnDoe2576/MagLev/blob/master/fig/png/MagLevTestDataTR.png)
 
 In the data folder, there are 3 files:
-1. Input-Output data for 900s (with dt=0.01s). The input signal is a combination of three sets of data of 300s each: 0s-300s is training set, 300s-600s is validation set and 600s-900s is test set for early stopping method. For the early stopping method to avoid overfitting, it is essential for the these three sets to be correlated with each other. These correlations are maintained using the $\tau_U$ parameter in APRBS. In each of the 300s sets, the first 100s designed to capture transient behaviour and the next 200s are designed to capture steady state behaviour.
-2. Once a trained Neural network is obtained, it (the network) is excited using APRBS sequences in the other two data-sets. The corresponding network output is compared with that of the actual output (simulated using ode45). This helps in giving an idea of the generalization property of obtained Neural Network.
+1. Input-Output data for 900s (with dt=0.01s): The input signal is a combination of three sets of data, 300s each: 0s-300s is training set, 300s-600s is validation set, and 600s-900s is test set. For the early stopping method to avoid overfitting, it is essential that these three sets be correlated with each other. These correlations are maintained using the parameter <img src="https://render.githubusercontent.com/render/math?math=\tau_{U}"> in APRBS. In each of the 300s sets, the first 100s designed to capture transient behaviour (<img src="https://render.githubusercontent.com/render/math?math=0.01 \le \tau_{U} \le 1.0">) and the next 200s are designed to capture steady state behaviour (<img src="https://render.githubusercontent.com/render/math?math=1.0 \le \tau_{U} \le 5.0">).
+2. Input-Output data for 100s (with dt=0.01s): Once a trained Neural Network is obtained, it (the network) is excited using APRBS sequences in the other two data-sets. The corresponding network output is compared with that of the actual output (simulated using 'ode45'). This helps in giving an idea of the generalization property of obtained Neural Network.
 
 -----------------------------------------------------------------------------------
 
