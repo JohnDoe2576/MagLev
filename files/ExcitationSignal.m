@@ -1,6 +1,6 @@
 function varargout = ExcitationSignal(varargin)
 
-% There are two function arguements 
+% There arethree inputs to this function 
 %       name:   Type of signal
 %       sim:      Simulation parameters
 %       parms:  Signal parameters
