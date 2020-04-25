@@ -17,7 +17,7 @@ All simulations were run on MATLAB R2020a.
 
 Currently, input-output data is obtained by exciting the Magnetic Levitation System with an Amplitude-modulated Pseudo Ranfom Binary Sequence (APRBS).
 
-![](https://github.com/JohnDoe2576/MagLev/blob/master/fig/png/MagLevTestDataSS.png)
+![](https://github.com/JohnDoe2576/MagLev/blob/master/fig/png/MagLevTestDataTR.png)
 
 In the data folder, there are 3 files:
 1. Input-Output data for 900s (with dt=0.01s). The input signal is a combination of three sets of data of 300s each: 0s-300s is training set, 300s-600s is validation set and 600s-900s is test set for early stopping method. For the early stopping method to avoid overfitting, it is essential for the these three sets to be correlated with each other. These correlations are maintained using the $\tau_U$ parameter in APRBS. In each of the 300s sets, the first 100s designed to capture transient behaviour and the next 200s are designed to capture steady state behaviour.
